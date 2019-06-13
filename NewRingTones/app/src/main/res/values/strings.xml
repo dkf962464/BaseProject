@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Ring Tone</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_banner">ca-app-pub-3378004538687285/1171171474</string>
+    <string name="default_notification_channel_id">sound</string>
+    <string name="default_notification_setting_name">sound</string>
+    <string name="facebook_app_id">683980828699393</string>
+
+    <string name="network_none">亲~你还没有网络哦</string>
+    <string name="network_mobel">您正在使用数据流量,请注意套餐超标哦</string>
+    <string name="network_wifi">您正在使用Wifi</string>
+</resources>
+
