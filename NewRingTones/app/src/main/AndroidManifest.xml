@@ -19,10 +19,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".search.view.SearchActivity"
-            android:configChanges="orientation|keyboardHidden"  />
-
-
         <service
             android:name=".base.baseutil.BasePlayService"
             android:enabled="true"
@@ -33,7 +29,7 @@
             android:value="ca-app-pub-8519724823288511~9170676886" />
 
         <activity
-            android:name=".vview.HomeActivity"
+            android:name=".home.view.HomeActivity"
             android:configChanges="orientation|keyboardHidden"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>

@@ -19,17 +19,25 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.rocky.googleadview.googleadview.LogUtils;
 import com.rocky.newringtones.R;
-import butterknife.ButterKnife;
+import com.rocky.newringtones.base.basemvp.model.BaseModelInter;
+import com.rocky.newringtones.base.basemvp.presenter.BasePresenter;
+import com.rocky.newringtones.base.basemvp.view.BaseViewInter;
 
-public abstract class BaseActivity extends AppCompatActivity {
+import butterknife.ButterKnife;
+public abstract class BaseActivity<T extends BasePresenter,V extends BaseViewInter> extends AppCompatActivity {
 
     private NetWorkBroadcast mReceiver;
+    protected T presenter;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         if (isImmersive()) {
             StatusBarUtil.immersive(this);
         }
         setContentView(setContentView());
+        presenter=getPresenter();
+        presenter.attach((V)this);
+//        presenter.attach(V);
         ButterKnife.bind(this);
         BaseAppManager.getInstance().addActivity(this);
         initData();
@@ -44,6 +52,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract void initView();
 
     public abstract boolean isImmersive();
+
+    protected abstract T getPresenter();
 
     protected int colorXmlToJava(int color) {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
@@ -119,10 +129,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
         return true;
     }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
+            presenter.deAttach();
             LogUtils.e(BaseAppManager.getInstance().currentActivity()+"destory");
             BaseAppManager.getInstance().finishActivity(this);
             if (null != mReceiver)

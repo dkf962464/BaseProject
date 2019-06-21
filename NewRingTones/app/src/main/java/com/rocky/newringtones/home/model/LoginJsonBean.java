@@ -1,4 +1,4 @@
-package com.rocky.newringtones.search.model;
+package com.rocky.newringtones.home.model;
 
 
 public class LoginJsonBean {

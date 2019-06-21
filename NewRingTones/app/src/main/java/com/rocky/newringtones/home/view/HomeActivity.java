@@ -1,4 +1,4 @@
-package com.rocky.newringtones.vview.view.activity;
+package com.rocky.newringtones.home.view;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -12,13 +12,12 @@ import com.rocky.googleadview.callinterface.ExInterface;
 import com.rocky.googleadview.googleadview.ExAdviewUtil;
 import com.rocky.googleadview.googleadview.LogUtils;
 import com.rocky.newringtones.R;
+import com.rocky.newringtones.base.basemvp.view.BaseViewInter;
 import com.rocky.newringtones.base.baseutil.BaseActivity;
 import com.rocky.newringtones.base.baseutil.JsonResult;
 import com.rocky.newringtones.base.baseutil.OkHttpManager;
-import com.rocky.newringtones.search.model.LoginJsonBean;
-import com.rocky.newringtones.vview.presenter.impl.HomeAPresenterImpl;
-import com.rocky.newringtones.vview.presenter.inter.IHomeAPresenter;
-import com.rocky.newringtones.vview.view.inter.IHomeAView;
+import com.rocky.newringtones.home.model.LoginJsonBean;
+import com.rocky.newringtones.home.presenter.HomePresenter;
 import com.rocky.vipmicrogame.JniEncryption;
 
 import java.io.IOException;
@@ -28,7 +27,7 @@ import java.util.Map;
 import butterknife.BindView;
 import okhttp3.Response;
 
-public class HomeActivity extends BaseActivity implements IHomeAView {
+public class HomeActivity extends BaseActivity<HomePresenter,HomeActivity> implements  BaseViewInter {
     static {
         System.loadLibrary("test");
     }
@@ -36,12 +35,11 @@ public class HomeActivity extends BaseActivity implements IHomeAView {
     @BindView(R.id.play_but)
     ImageView mImageView;
     private long mExitTime;
-    private IHomeAPresenter mIHomeAPresenter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mIHomeAPresenter = new HomeAPresenterImpl(this);
+
 //        LinearLayout view=findViewById(R.id.view_);
 //        BaAdviewUtil.showBaAdView(this,"ca-app-pub-8519724823288511/4211538839",view, BaSize.BANNER);
 //        LogUtils.e("xxhdpi");
@@ -139,12 +137,8 @@ public class HomeActivity extends BaseActivity implements IHomeAView {
     }
 
     @Override
-    public <T> T request(int requestFlag) {
-        return null;
+    protected HomePresenter getPresenter() {
+        return new HomePresenter();
     }
 
-    @Override
-    public <T> void response(T response, int responseFlag) {
-
-    }
 }
