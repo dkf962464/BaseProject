@@ -1,16 +1,18 @@
 package com.rocky.newringtones.search.view;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.rocky.newringtones.R;
-import com.rocky.newringtones.base.BaseActivity;
+import com.rocky.newringtones.base.baseutil.BaseActivity;
+
+import butterknife.OnClick;
 
 public class SearchActivity extends BaseActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_);
     }
 
     @Override
@@ -20,6 +22,11 @@ public class SearchActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+
+    }
+
+    @OnClick(R.id.but)
+    public void onClick(View view) {
 
     }
 

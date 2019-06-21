@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipChildren="false"
+
         android:orientation="vertical">
 
         <include
@@ -65,6 +66,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="20dp"
+
                 android:layout_weight="0.1"
                 android:text="02:26"
                 android:textSize="10sp" />

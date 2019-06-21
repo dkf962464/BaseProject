@@ -1,4 +1,4 @@
-package com.rocky.newringtones.base;
+package com.rocky.newringtones.base.baseutil;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -27,6 +27,4 @@ public class NetWorkBroadcast extends BroadcastReceiver  {
             }
         }
     }
-
-
 }

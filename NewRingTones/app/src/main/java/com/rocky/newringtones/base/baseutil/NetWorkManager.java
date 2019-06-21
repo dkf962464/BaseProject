@@ -1,4 +1,4 @@
-package com.rocky.newringtones.base;
+package com.rocky.newringtones.base.baseutil;
 
 public class NetWorkManager {
     private static int netWorkType=-1;

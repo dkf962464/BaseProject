@@ -1,6 +1,5 @@
 package com.rocky.googleadview.callinterface;
-
 public interface BaseTotalController {
     void closeAdView();
-    void onLoadFailedAdView(int errorCode);
+    void onLoadFailedAdView(int errorCode, Object view);
 }
