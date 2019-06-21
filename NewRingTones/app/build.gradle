@@ -46,4 +46,5 @@ dependencies {
     //添加这一行
     //    implementation(name:'googleadviewsdk', ext:'aar')
     implementation files('libs/encryption.jar')
+    implementation project(':googleadviewsdk')
 }
