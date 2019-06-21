@@ -7,7 +7,7 @@ import java.lang.ref.WeakReference;
 
 public abstract class BasePresenter<V extends BaseViewInter, M extends BaseModelInter> {
     private WeakReference<V> mWeakReference;
-    private M model;
+    public M model;
 
     public void attach(V v) {
         mWeakReference = new WeakReference<>(v);

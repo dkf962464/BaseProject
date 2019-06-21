@@ -40,15 +40,11 @@ public abstract class BaseActivity<T extends BasePresenter,V extends BaseViewInt
 //        presenter.attach(V);
         ButterKnife.bind(this);
         BaseAppManager.getInstance().addActivity(this);
-        initData();
         initView();
         super.onCreate(savedInstanceState);
     }
 
     protected abstract int setContentView();
-
-    protected abstract void initData();
-
     protected abstract void initView();
 
     public abstract boolean isImmersive();
@@ -113,7 +109,7 @@ public abstract class BaseActivity<T extends BasePresenter,V extends BaseViewInt
         }
         return false;
     }
-    protected boolean isJson(String json){
+    public static boolean isJson(String json){
 
         JsonElement jsonElement;
         try {
