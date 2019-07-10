@@ -10,5 +10,8 @@
     <string name="network_none">亲~你还没有网络哦</string>
     <string name="network_mobel">您正在使用数据流量,请注意套餐超标哦</string>
     <string name="network_wifi">您正在使用Wifi</string>
+    <string name="start_time">00:01</string>
+    <string name="end_time">02:26</string>
+    <string name="todo">TODO</string>
 </resources>
 

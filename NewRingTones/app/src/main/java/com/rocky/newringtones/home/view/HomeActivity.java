@@ -20,16 +20,30 @@ public class HomeActivity extends BaseActivity<HomePresenter,HomeActivity> imple
     static {
         System.loadLibrary("test");
     }
-
     @BindView(R.id.play_but)
     ImageView mImageView;
     private long mExitTime;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         presenter.login();
-        presenter.requestExView(getApplicationContext());
+        presenter.requestExView(this);
+    }
+    @Override
+    protected int setContentView() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected void initView() {
+    }
+        @Override
+    protected void makeData(){
+        String encrypt = JniEncryption.encrypt("xxhdpi");
+        String decrypt = JniEncryption.decrypt(encrypt);
+        Log.e("tags", "" + encrypt);
+        Log.e("tags", "" + decrypt);
+
         mImageView.setOnClickListener(v -> {
             if ((System.currentTimeMillis() - mExitTime) > 4000) {
                 ExAdviewUtil.showExView(HomeActivity.this);
@@ -39,24 +53,12 @@ public class HomeActivity extends BaseActivity<HomePresenter,HomeActivity> imple
             }
         });
     }
-    @Override
-    protected int setContentView() {
-        return R.layout.activity_search;
-    }
-
-    @Override
-    protected void initView() {
-        String encrypt = JniEncryption.encrypt("我是一个粉刷");
-        String decrypt = JniEncryption.decrypt(encrypt);
-        Log.e("tags", "" + encrypt);
-        Log.e("tags", "" + decrypt);
-    }
-
+    //是否开启沉浸式
     @Override
     public boolean isImmersive() {
         return true;
     }
-
+    //返回子类Presenter
     @Override
     protected HomePresenter getPresenter() {
         return new HomePresenter();

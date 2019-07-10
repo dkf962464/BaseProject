@@ -1,4 +1,4 @@
-package com.rocky.newringtones.base.baseutil;
+package com.rocky.newringtones.base.basemvp.model;
 
 
 public class JsonResult<T>  {

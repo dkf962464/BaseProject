@@ -1,4 +1,4 @@
-package com.rocky.newringtones.base.baseutil;
+package com.rocky.newringtones.util;
 
 import android.app.Activity;
 import android.content.Context;

@@ -1,31 +1,25 @@
 package com.rocky.newringtones.home.model;
-
 import android.content.Context;
 import android.util.Log;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.rocky.googleadview.callinterface.ExInterface;
 import com.rocky.googleadview.googleadview.ExAdviewUtil;
 import com.rocky.googleadview.googleadview.LogUtils;
-import com.rocky.newringtones.base.baseutil.JsonResult;
+import com.rocky.newringtones.base.basemvp.model.JsonResult;
 import com.rocky.newringtones.base.baseutil.OkHttpManager;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
 import okhttp3.Response;
 
-import static com.rocky.newringtones.base.baseutil.BaseActivity.isJson;
-
 public  class HomeModelImpl implements HomeModelInterface {
-
     @Override
     public void doLogin(HomeCallBackInter inter) {
         Map<String, String> map = new HashMap<>();
         map.put("name", "wanggaolei");
         map.put("pwd", "123456");
+
         OkHttpManager.getInstances().post("https://xxhdpi.utools.club/WeCharCost/login", map, new OkHttpManager.OnCallback() {
             @Override
             public void onError(IOException e) {
@@ -45,6 +39,8 @@ public  class HomeModelImpl implements HomeModelInterface {
                         }.getType());
                         LoginJsonBean data = jsonResult.getData();
                         inter.resultSuccess(data);
+                    }else{
+                        LogUtils.e("result is not json");
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
