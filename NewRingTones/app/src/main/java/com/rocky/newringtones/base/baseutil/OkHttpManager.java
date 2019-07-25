@@ -126,22 +126,4 @@ public class OkHttpManager {
             }
         });
     }
-//    public static HashMap<String,String> parameConfiguer(Context context, String interfaceType){
-//        params = new HashMap<>();
-//        long currentTime = System.currentTimeMillis();
-//        String strParam = String.format(ConstantsUtil.PIN_PARAMS,ConstantsUtil.APP_ID,interfaceType,currentTime,getAppVersionCode(context));
-//        String sign = BaseMD5.MD5(strParam+"&pdfjpgimggif=true");
-//
-//        params.put("appId", ConstantsUtil.APP_ID);
-//        params.put("method", interfaceType);
-//        params.put("ts", String.valueOf(currentTime));
-//        params.put("f", "json");
-//        params.put("v", getAppVersionCode(context));
-//        params.put("s",sign);
-//        params.put("secret",ConstantsUtil.APP_SEC);
-//        params.put("callback","?");
-////        params.put("gameType", "1");
-//
-//        return params;
-//    }
 }

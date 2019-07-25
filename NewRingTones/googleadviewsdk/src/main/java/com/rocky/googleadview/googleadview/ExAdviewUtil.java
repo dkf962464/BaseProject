@@ -26,6 +26,7 @@ public class ExAdviewUtil {
     private static RewardedAdLoadCallback adLoadCallback;
     private static ExInterface controllers;
     private static String[]ids;
+    //此方法一个项目中只允许出现一次，其他地方要用RewardedAd对象，请调用createAndLoadRewardedAd方法来获取
     public static void loadExAdView(final Context context, final ExInterface controller ,String ... id) {
         controllers = controller;
        ids=id;

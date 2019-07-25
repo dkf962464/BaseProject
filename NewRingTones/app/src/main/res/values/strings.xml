@@ -13,5 +13,8 @@
     <string name="start_time">00:01</string>
     <string name="end_time">02:26</string>
     <string name="todo">TODO</string>
+
+    <string name="db_name">test</string>
+    <string name="default_table">info</string>
 </resources>
 
